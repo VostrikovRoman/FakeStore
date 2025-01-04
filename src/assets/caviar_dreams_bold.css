@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Caviar Dreams Bold';
+	src: url('../fonts/caviar_dreams_bold.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/caviar_dreams_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/caviar_dreams_bold.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/caviar_dreams_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/caviar_dreams_bold.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/caviar_dreams_bold.svg#caviar_dreams_bold') format('svg'); /* Chrome < 4, Legacy iOS */
+}
