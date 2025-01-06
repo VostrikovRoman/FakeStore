@@ -4,9 +4,18 @@
       <img class="logo" src="./assets/store_w.png">
     </div>    
     <div class="menu_bar">
-      <p class="text menu">1</p>
-      <p class="text menu">1</p>
-      <p class="text menu">1</p>
+      <div class="menu_item">
+        <img class="logo_menu" src="./assets/options-lines.png">
+        <p class="text menu">Категории</p>
+      </div>
+      <div class="menu_item">
+        <img class="logo_menu" src="./assets/filter.png">
+        <p class="text menu">Фильтр</p>
+      </div>
+      <div class="menu_item">
+        <img class="logo_menu" src="./assets/basket.png">
+        <p class="text menu">Корзина</p>
+      </div>
     </div>
   </div>
   <button @click="GetData" style="display: none;">Нажми</button>
@@ -307,19 +316,22 @@ body{
 }
 .header{
   background: var(--purple);
-  position: fixed;
+  position: sticky;
+  top: 0px;
   width: 100%;
   display: flex;
   box-shadow: 0px 0px 10px 0px;
+  font-family: 'Caviar Dreams Bold';
 ;
 }
 .logo{
-  width: 15%;
+  width: 30%;
 }
 .menu_bar{
   display: flex;
   align-items: center;
   color: var(--white);
+  justify-content: flex-end;
 }
 .text{
 
@@ -332,6 +344,21 @@ body{
   align-items: center;
   width: 30%;
   margin: 10px 5%;
+}
+.logo_menu{
+  width: 15%;
+  margin: 10px;
+}
+.menu_item{
+  display: inline-flex;
+  width: 20%;
+  margin: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.menu_item:hover{
+  text-shadow: 0px 0px 10px;
 }
 
 
