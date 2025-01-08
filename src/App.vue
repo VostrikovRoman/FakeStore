@@ -47,7 +47,7 @@ let data = ref([
     "price": 109.95,
     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     "category": "men's clothing",
-    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "image": "https://downloader.disk.yandex.ru/preview/8e7d557970651cdbbeb65b8a4d3428b3c6033bd0cf94cd3d83108db185de64c6/677e8043/9TJw-qJWe3yfaJOX77g7zS2Huj3wr5F-SMEE2IK8ux_A3qIsBfCrTxHAuMIfYZLox8g9i9D37ovSABcUvcAybw%3D%3D?uid=0&filename=81fPKd-2AYL._AC_SL1500_.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048",
     "rating": {
       "rate": 3.9,
       "count": 120
@@ -304,15 +304,16 @@ body{
  --purple:#802c6e;
  --light-purple:#bb8db2;
  --white:#fffdfd;
- --grey:#f5f5f5;
+ --grey:#cbbcc1;
  --yellow:#f7aa35;
  --black:#3a3134;
 
 }
 .cards{
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 .header{
   background: var(--purple);
@@ -322,6 +323,7 @@ body{
   display: flex;
   box-shadow: 0px 0px 10px 0px;
   font-family: 'Caviar Dreams Bold';
+  z-index: 10;
 ;
 }
 .logo{
@@ -334,10 +336,11 @@ body{
   justify-content: flex-end;
 }
 .text{
-
+  font-size: 16px;
+  color: var(--black);
 }
 .text.menu{
-
+  color: var(--white);
 }
 .ico{
   display: flex;
@@ -355,7 +358,7 @@ body{
   margin: 10px;
   align-items: center;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.25s;
 }
 .menu_item:hover{
   text-shadow: 0px 0px 10px;
