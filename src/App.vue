@@ -1,16 +1,12 @@
 <template>
-  <div class="header">
+  <div class="header" >
     <div class="ico">
       <img class="logo" src="./assets/store_w.png">
     </div>    
     <div class="menu_bar">
-      <div class="menu_item">
+      <div class="menu_item" @click="OpenCategories">
         <img class="logo_menu" src="./assets/options-lines.png">
         <p class="text menu">Категории</p>
-      </div>
-      <div class="menu_item">
-        <img class="logo_menu" src="./assets/filter.png">
-        <p class="text menu">Фильтр</p>
       </div>
       <div class="menu_item">
         <img class="logo_menu" src="./assets/basket.png">
@@ -18,8 +14,11 @@
       </div>
     </div>
   </div>
+  <div class="menu_for hide">
+    <categories_bar style="margin: 0px 20px;"></categories_bar>
+  </div>
   <button @click="GetData" style="display: none;">Нажми</button>
-  <div class="cards" v-if="data">
+  <div class="cards" v-if="data" @click="CloseWindow">
     <store_card 
       v-for="elem in data"
       :key="elem"
@@ -39,6 +38,7 @@
 <script setup>
 import {ref} from 'vue'
 import store_card from './components/store_card.vue'
+import categories_bar from './components/categories_bar.vue'
 
 let data = ref([
 {
@@ -289,6 +289,21 @@ function GetData(){
             .then(json=>data.value = json)
   console.log(data.value)
 }
+function OpenCategories(){
+  let elem = document.querySelector(".menu_for")
+  if (elem.classList.contains('hide')){
+    elem.classList.remove('hide')
+  }
+  else{
+    elem.classList.add('hide')
+  }
+}
+function CloseWindow(){
+  let elem = document.querySelector(".menu_for")
+  if (!elem.classList.contains('hide')){
+    elem.classList.add('hide')
+  }
+}
 
 
 
@@ -308,6 +323,10 @@ body{
  --yellow:#f7aa35;
  --black:#3a3134;
 
+}
+.hide{
+  display: none;
+  transition: 0.25s;
 }
 .cards{
   display: flex;
@@ -363,7 +382,14 @@ body{
 .menu_item:hover{
   text-shadow: 0px 0px 10px;
 }
-
+.menu_for{
+    position: fixed;
+    width: 100%;
+    background: var(--white);
+    z-index: 9;
+    box-shadow: 0px 0px 10px 0px;
+    padding: 10px 20px;
+}
 
 
 

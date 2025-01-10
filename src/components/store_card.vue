@@ -8,7 +8,7 @@
             <img :src="image" class="product_img">
         </div>
         <p class="text price">{{ price }} &dollar;</p>
-        <p class="name text">{{ title }}</p>
+        <p class="name text">{{ title }} / <span class="text category">{{ category }}</span></p>
         <button class="butt">В корзину</button>
     </div>
 </template>
@@ -54,8 +54,8 @@ defineProps({
     font-size: 20px;
     color: var(--purple);
 }
-.text.rate{
-
+.text.category{
+    color:var(--light-purple);
 }
 .star{
     width: 20px;
@@ -71,6 +71,7 @@ defineProps({
     font-size: 16px;
     font-family: 'Caviar Dreams Bold';
     transition: 0.25s;
+    cursor: pointer;
 }
 .butt:hover{
     background: var(--purple);
