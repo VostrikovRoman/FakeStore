@@ -4,7 +4,7 @@
         <div class="trade">
             <div class="content_box">
                 <div class="box image">
-                    <img class="image_box" :src="image">
+                    <img class="image_box product" :src="image">
                 </div>
                 <div class="box">
                     <p class="text title product">{{ title }}</p>
@@ -108,7 +108,7 @@ function CloseWindow(){
     margin-top: 10px;
 
 }
-.image_box{
+.image_box.product{
     width: 75%;
 }
 .title.product{
