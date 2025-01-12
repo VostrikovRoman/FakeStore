@@ -23,14 +23,11 @@
       @click="LoadProduct(elem.id)"
       v-for="elem in data"
       :key="elem"
-      :id="elem.id" 
       :title="elem.title"
       :price="elem.price" 
-      :description="elem.description" 
       :category="elem.category" 
       :image="elem.image" 
       :rate="elem.rating.rate" 
-      :count="elem.rating.count"
 
     ></store_card>
   </div>
@@ -53,7 +50,9 @@
     :rate="product_data.rating.rate" 
     :count="product_data.rating.count"
   ></trade_elem>
-</template>
+</template> 
+
+<!--  -->
 
 <script setup>
 import {ref} from 'vue'
@@ -63,7 +62,22 @@ import trade_elem from './components/trade_elem.vue'
 
 let data = ref(null)
 let categories = ref(null)
-let product_data = ref(null)
+let product_data = ref(
+  {
+    "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "https://downloader.disk.yandex.ru/preview/97c88a4cfc9963b57c2d16b02b36fc5aed001fdd4dde26d73c02eab1f2aed9c7/6783996f/9TJw-qJWe3yfaJOX77g7zS2Huj3wr5F-SMEE2IK8ux_A3qIsBfCrTxHAuMIfYZLox8g9i9D37ovSABcUvcAybw%3D%3D?uid=0&filename=81fPKd-2AYL._AC_SL1500_.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048",
+    "rating": {
+      "rate": 3.9,
+      "count": 120
+    }
+  }
+)
+
+// let product_data = ref(null)
 
 function GetData(){
   fetch('https://fakestoreapi.com/products')

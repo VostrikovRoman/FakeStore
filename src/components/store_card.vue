@@ -17,14 +17,11 @@
 import {defineProps} from 'vue'
 
 defineProps({
-  id: Number,
   title: String,
   price: Number,
-  description: String,
   category: String,
   image: String,
-  rate: Number,
-  count: Number
+  rate: Number
 })
 
 </script>
@@ -46,9 +43,6 @@ defineProps({
 }
 .product_img{
     width: 100%;
-}
-.image_box{
-
 }
 .text.price{
     font-size: 20px;
