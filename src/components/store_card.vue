@@ -8,8 +8,8 @@
             <img :src="image" class="product_img">
         </div>
         <p class="text price">{{ price }} &dollar;</p>
-        <p class="name text">{{ title }} / <span class="text category">{{ category }}</span></p>
-        <button class="butt">В корзину</button>
+        <p class="name text" translate="no">{{ title }} / <span class="text category" translate="yes">{{ category }}</span></p>
+        <button class="butt" translate="no">В корзину</button>
     </div>
 </template>
 

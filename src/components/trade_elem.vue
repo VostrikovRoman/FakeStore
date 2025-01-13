@@ -1,5 +1,5 @@
 <template>
-    <div class="window product_background">
+    <div class="window product_background hide">
         <img class="close" src="../assets/close.png" @click="CloseWindow">
         <div class="trade">
             <div class="content_box">
@@ -7,7 +7,7 @@
                     <img class="image_box product" :src="image">
                 </div>
                 <div class="box">
-                    <p class="text title product">{{ title }}</p>
+                    <p class="text title product" translate="no">{{ title }}</p>
                     <p class="text category product">{{ category }}</p>
                     <p class="text price product">{{ price }} &dollar;</p>
                     <p class="text description product">{{ description }}</p>
@@ -18,7 +18,7 @@
                     <p class="text count product">Оценок: {{ count }}</p>
                 </div>
             </div>
-            <button class="butt product">В корзину</button>
+            <button class="butt product" translate="no">В корзину</button>
         </div>
     </div>
     
@@ -91,11 +91,13 @@ function CloseWindow(){
     margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-y: scroll;
 }
 .box.image{
     overflow: hidden;
     align-items: center;
+    justify-content: center;
 }
 .content_box{
     width: 100%;
