@@ -9,7 +9,7 @@
         <img class="logo_menu" src="./assets/options-lines.png">
         <p class="text menu">Категории</p>
       </div>
-      <div class="menu_item">
+      <div class="menu_item" @click="OpenBasket">
         <img class="logo_menu" src="./assets/basket.png">
         <p class="text menu">Корзина</p>
       </div>
@@ -51,6 +51,7 @@
     :rate="product_data.rating.rate" 
     :count="product_data.rating.count"
   ></trade_elem>
+  <basket_window></basket_window>
   <div class="pagination_bar" v-if="count_products>max_products">
     <div class="tab" v-for="n in Math.ceil(count_products/max_products)" :key="n" @click="SelectPage"> 
           <input type="radio" :id="n+'_page'" name="page" class="input_page">
@@ -64,6 +65,7 @@ import {ref} from 'vue'
 import store_card from './components/store_card.vue'
 import categories_bar from './components/categories_bar.vue'
 import trade_elem from './components/trade_elem.vue'
+import basket_window from './components/basket_window.vue'
 
 let data = ref(null)
 
@@ -79,6 +81,7 @@ let this_page = ref(1)
 let categories = ref(null)
 let product_data = ref(null)
 
+// let basket = 
 
 function GetData(){
   fetch('https://fakestoreapi.com/products')
@@ -95,6 +98,15 @@ function OpenCategories(){
     fetch('https://fakestoreapi.com/products/categories')
             .then(res=>res.json())
             .then(json=>categories.value = json)
+  }
+  else{
+    elem.classList.add('hide')
+  }
+}
+function OpenBasket(){
+  let elem = document.querySelector(".basket_background")
+  if (elem.classList.contains('hide')){
+    elem.classList.remove('hide')
   }
   else{
     elem.classList.add('hide')

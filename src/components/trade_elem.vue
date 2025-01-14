@@ -47,7 +47,6 @@ function CloseWindow(){
     }
     i++
   }
-//   console.log(elem)
 }
 
 </script>
