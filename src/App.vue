@@ -21,9 +21,10 @@
   </div>
   <div class="cards" @click="CloseWindow" v-if="data">
     <store_card 
-      @click="LoadProduct(elem.id)"
+      
       v-for="elem in pagination_data"
       :key="elem"
+      :id="elem.id"
       :title="elem.title"
       :price="elem.price" 
       :category="elem.category" 
@@ -31,6 +32,7 @@
       :rate="elem.rating.rate" 
 
     ></store_card>
+    <!-- @click="LoadProduct(elem.id)" -->
   </div>
   <div style="width: 90%; height: 75vh;" v-else @mousemove="GetData">
     <img src="./assets/waiting.png" style="width: 10%;
@@ -69,6 +71,11 @@ import basket_window from './components/basket_window.vue'
 
 let data = ref(null)
 
+if (!localStorage.getItem('basket_data')){
+  let b_data = []
+  localStorage.setItem('basket_data', JSON.stringify(b_data));
+}
+
 let count_products = 0
 let pagination_data = ref(null)
 if (data.value != null){
@@ -81,15 +88,15 @@ let this_page = ref(1)
 let categories = ref(null)
 let product_data = ref(null)
 
-// let basket = 
 
 function GetData(){
   fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())
             .then(json=>data.value = json)
-  // let input = document.querySelector("1_page")
-  // console.log(input)
-  // input.getAttribute("checked")
+            if (data.value != null){
+  count_products = data.value.length
+  pagination_data = ref(data.value.slice(0,max_products))
+}
 }
 function OpenCategories(){
   let elem = document.querySelector(".menu_for")
@@ -118,16 +125,16 @@ function CloseWindow(){
     elem.classList.add('hide')
   }
 }
-function LoadProduct (id_product){
-  product_data.value = data.value[id_product-1]
-  let elem = document.querySelector(".product_background")
-  if (elem.classList.contains('hide')){
-    elem.classList.remove('hide')
-  }
-  else{
-    elem.classList.add('hide')
-  }
-}
+// function LoadProduct (id_product){
+//   product_data.value = data.value[id_product-1]
+//   let elem = document.querySelector(".product_background")
+//   if (elem.classList.contains('hide')){
+//     elem.classList.remove('hide')
+//   }
+//   else{
+//     elem.classList.add('hide')
+//   }
+// }
 function SelectPage (){
   let pages = document.querySelectorAll(".text.pagin")
   let inputs = document.querySelectorAll(".input_page")
@@ -393,7 +400,6 @@ function BetaVersion (){
   pagination_data = ref(data.value.slice(0,max_products))
   document.querySelector(".text.beta").classList.remove('hide')
 }
-
 
 
 
