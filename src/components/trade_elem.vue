@@ -1,5 +1,5 @@
 <template>
-    <div class="window product_background hide">
+    <div class="window product_background hide" @mousemove="Refresh(id)">
         <img class="close" src="../assets/close.png" @click="CloseWindow">
         <div class="trade">
             <div class="content_box">
@@ -18,7 +18,8 @@
                     <p class="text count product">Оценок: {{ count }}</p>
                 </div>
             </div>
-            <button class="butt product" translate="no">В корзину</button>
+            <button class="butt product" translate="no" v-if="!in_basket">В корзину</button>
+            <button class="butt in_basket" translate="no" v-if="in_basket">В корзине</button>
         </div>
     </div>
     
@@ -26,6 +27,7 @@
 
 <script setup>
 import {defineProps} from 'vue'
+import {ref} from 'vue'
 
 defineProps({
   id: Number,
@@ -37,6 +39,19 @@ defineProps({
   rate: Number,
   count: Number
 })
+
+let in_basket = ref(false)
+let basket_data = ref(JSON.parse(localStorage.getItem('basket_data')))
+
+function Refresh (id){
+    let i= 0
+    while (i<basket_data.value.length){
+        if (basket_data.value[i].id == id){
+            in_basket.value = true
+        }
+        i++
+    }
+}
 
 function CloseWindow(){
   let elem = document.querySelectorAll(".window")

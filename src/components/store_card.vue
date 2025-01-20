@@ -97,6 +97,7 @@ function Refresh (id){
     background: var(--light-purple);
     border: var(--grey);
     color: var(--white);
+    cursor: initial !important;
 }
 .butt.in_basket:hover{
     background: var(--light-purple);
