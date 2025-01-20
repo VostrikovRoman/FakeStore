@@ -776,7 +776,6 @@ body{
     padding: 10px 20px;
 }
 .pagination_bar{
-  width: 100%;
   display: flex;
   padding: 10px 20px;
   justify-content: center;
@@ -821,6 +820,7 @@ body{
 
 
 
+/* Animations */
 
 @keyframes loading{
   0%{
@@ -828,6 +828,102 @@ body{
   }
   100%{
     transform: translate(-50%, -50%) rotate(360deg) ;
+  }
+}
+
+/* MediaScreen */
+@media (min-width:300px) and (max-width:500px) {
+    .ico{
+      width:100%
+    }
+    .logo{
+      width:50%
+    }
+    .menu_item{
+      width: 40%;
+      margin: 10px 15px;
+    }
+    .text.menu{
+      font-size: 12px;
+    }
+    .text.beta{
+      font-size: 12px;
+    }
+    .product_card{
+      width: 65%;
+    }
+    .close{
+      width: 5%;
+    }
+    .content_box{
+      flex-direction: column;
+      align-items: center;
+    }
+    .box.image{
+      width: initial;
+      height: 100%;
+    }
+    .basket_box{
+      align-items: center;
+    }
+    .cart{
+      width: initial;
+      margin: 30px 0px;
+    }
+    .butt.product{
+      width: 100%;
+    }
+}
+@media (min-width:1300px) and (max-width:2000px){
+  .product_card{
+    width: 20%;
+  }
+  .text.menu{
+    font-size: 20px;
+  }
+  .text.beta{
+    font-size: 20px;
+  }
+  .ico{
+    width: 15%;
+  }
+  .text{
+    font-size: 20px;
+  }
+  .category.product{
+    font-size: 20px;
+  }
+  .count.product{
+    font-size: 20px;
+  }
+  .text.title{
+    font-size: 25px;
+  }
+  .rate.product{
+    font-size: 20px;
+  }
+  .star{
+    width: 30px;
+  }
+  .butt{
+    font-size: 25px;
+  }
+  .text.price{
+    font-size: 30px;
+  }
+  .text.cart_price{
+    font-size: 25px;
+  }
+}
+@media (min-width:1700px){
+  .product_card{
+    width: 15%;
+  }
+  .text.beta{
+    font-size: 25px;
+  }
+  .text.menu{
+    font-size: 25px !important;
   }
 }
 
@@ -840,7 +936,7 @@ body{
 
 
 
-
+/* Fonts */
 
 @font-face {
 	font-family: 'Caviar Dreams Bold';

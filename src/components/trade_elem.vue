@@ -125,7 +125,7 @@ function CloseWindow(){
 
 }
 .image_box.product{
-    width: 75%;
+    width: 50%;
 }
 .title.product{
     text-shadow: 0px 0px 10px var(--grey);
